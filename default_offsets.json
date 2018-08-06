@@ -1,0 +1,123 @@
+[
+    {
+        "DeviceID": 0,
+        "tempOffset": 0,
+        "xOffset": 0,
+        "yOffset": 0,
+        "zOffset": 0,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 2,
+        "tempOffset": 1.4,
+        "xOffset": 0,
+        "yOffset": 0,
+        "zOffset": 0,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 3,
+        "tempOffset": 0.1,
+        "xOffset": 1.53,
+        "yOffset": 0.31,
+        "zOffset": 0.27,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 4,
+        "tempOffset": 0.2,
+        "xOffset": -0.08,
+        "yOffset": -0.65,
+        "zOffset": 0.6,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 5,
+        "tempOffset": -0.1,
+        "xOffset": 0.475,
+        "yOffset": -0.7,
+        "zOffset": 0.5,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 6,
+        "tempOffset": 0.9,
+        "xOffset": 1.35,
+        "yOffset": -0.53,
+        "zOffset": -0.6,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 7,
+        "tempOffset": 0.8,
+        "xOffset": 1.05,
+        "yOffset": -1.2,
+        "zOffset": -1,
+		"basetemp": 35,
+
+    },
+    {
+        "DeviceID": 8,
+        "tempOffset": 0.7,
+        "xOffset": -0.26,
+        "yOffset": -0.17,
+        "zOffset": -0.1,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 9,
+        "tempOffset": 0.6,
+        "xOffset": 0.53,
+        "yOffset": -1.18,
+        "zOffset": 0.3,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 10,
+        "tempOffset": -0.3,
+        "xOffset": 1.25,
+        "yOffset": -0.335,
+        "zOffset": -0.15,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 11,
+        "tempOffset": -0.5,
+        "xOffset": 0.65,
+        "yOffset": -0.7,
+        "zOffset": -0.1,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 12,
+        "tempOffset": 0.7,
+        "xOffset": 1.15,
+        "yOffset": -0.2,
+        "zOffset": 0,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 13,
+        "tempOffset": 0.3,
+        "xOffset": 1.13,
+        "yOffset": -1.1,
+        "zOffset": 0,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 14,
+        "tempOffset": 0.3,
+        "xOffset": -0.02,
+        "yOffset": -0.74,
+        "zOffset": 0,
+		"basetemp": 35
+    },
+    {
+        "DeviceID": 15,
+        "tempOffset": 0.2,
+        "xOffset": 0.57,
+        "yOffset": -1.26,
+        "zOffset": 0,
+		"basetemp": 35
+    }
+]
