@@ -16,6 +16,7 @@ public:
     const QMap<int, QList<DataRecord*> > Records();
     const QList<DataRecord*> SortedRecords();
 
+
     void setDeviceOffset(int devId, OffsetType type, double offset);
 
     double deviceXOffset(int devId);

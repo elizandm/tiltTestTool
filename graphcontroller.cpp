@@ -120,15 +120,24 @@ void GraphController::ShowZGraph()
 
 void GraphController::autoGenOffsets()
 {
-    QMap<int, QList<DataRecord *> > records = data_provider->Records();
-    QList<DataRecord *> reference_records = records.value(2); // Device 2 for now.
-    QMapIterator<int, QList<DataRecord *> > i(records);
-    while (i.hasNext()) {
-        i.next();
-        if (i.key() == 2)
-            continue;
-        QList<DataRecord *> dev_recs = i.value();
-    }
+    //QMap<int, QList<DataRecord *> > records = data_provider->Records();
+
+    QList<DataRecord*> records = data_provider-> SortedRecords();
+
+   // qDebug() << "found next"<< records<< " under key ";
+        qDebug() << "found next"<< records<< " under key ";
+
+    //QMapIterator<int, QList<DataRecord *> > i(records); //he is doing that here
+    //while (i.hasNext()) {
+      //  i.next();
+        //qDebug() << "found next"<< i.next()[1]<< " under key ";
+
+
+        //if (i.key() == 2)
+          //  qDebug() << "Got here " << " under key ";
+
+        //QList<DataRecord *> dev_recs = i.value();
+   // }
 
 }
 
@@ -159,7 +168,7 @@ void GraphController::update_graph(QChart *graph, GraphController::GraphType gra
                 record->DeviceID() == 10 ||record->DeviceID() == 11 ||
                 record->DeviceID() == 12 ||record->DeviceID() == 13 ||
                 record->DeviceID() == 14 || record->DeviceID() == 15) {
-            if (!graphData.contains(record->DeviceID())) {
+            if (!graphData.contains(record->DeviceID())&& plot_on[record->DeviceID()-1]==record->DeviceID()) {//check if series exists in array
                     graphData.insert(record->DeviceID(), new QLineSeries());
                     graphData[record->DeviceID()]->setName(QString("Dev %1").arg(record->DeviceID()));
 

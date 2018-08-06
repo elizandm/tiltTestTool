@@ -29,6 +29,7 @@ public:
     void showTemperatureShiftGraph();
 
     void autoGenOffsets();
+    int plot_on[16] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 
 
 private slots:
@@ -56,7 +57,6 @@ private:
     QMainWindow *x_drift_window;
     QMainWindow *y_drift_window;
     QMainWindow *temperature_window;
-
 
 
     void update_graph(QChart *graph, GraphType graphType, QString x_axis_name);

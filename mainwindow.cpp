@@ -46,6 +46,7 @@ void MainWindow::on_btn_import_clicked()
         QMessageBox::information(this, "Import failed", "File doesn't exists");
 
     update_dev_id_combobox();
+    graph_controller->autoGenOffsets();
 
     graph_controller->showTemperatureShiftGraph();
     graph_controller->ShowXShiftGraph();
@@ -110,15 +111,20 @@ void MainWindow::on_comboBox_device_currentIndexChanged(int)
 
 void MainWindow::on_checkBox_toggled(bool checked)
 {
-    graph_controller->plotON = (1<<1)^(graph_controller->plotON);
+   // graph_controller->plotON = (1<<1)^(graph_controller->plotON);
+   if (checked){
+       graph_controller->plot_on[2+1] = 2;
+   }else{
+       graph_controller->plot_on[2+1] = 0;
+   }
 }
 
 void MainWindow::on_checkBox_2_toggled(bool checked)
 {
-    graph_controller->plotON = (1<<2)^graph_controller->plotON;
+    //graph_controller->plotON = (1<<2)^graph_controller->plotON;
 }
 
 void MainWindow::on_checkBox_3_toggled(bool checked)
 {
-    graph_controller->plotON = (1<<3)^graph_controller->plotON;
+   // graph_controller->plotON = (1<<3)^graph_controller->plotON;
 }

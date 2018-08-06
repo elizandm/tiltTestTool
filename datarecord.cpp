@@ -195,6 +195,11 @@ void DataRecord::calculate_a_xyz_values()
     Ax = x / rss;
     Ay = y / rss;
     Az = z / rss;
+    //qDebug() << "device ID" << devId;
+    averageX[devId] = averageX[devId]+Ax;
+    averageY[devId] = averageY[devId]+Ay;
+    averageZ[devId] = averageZ[devId]+Az;
+    averagei[devId] = averageX[devId]+1;
 }
 
 void DataRecord::calculate_rotations_on_x()
@@ -234,6 +239,7 @@ void DataRecord::calculate_final_x_rot()
 
     final_x_rotaton_rad = tan( rot_on_z_y / pow_z_rot + 0.00001 * pow_x_rot  );
     final_x_rotaton_deg = final_x_rotaton_rad * 180 / M_PI;
+
 }
 
 void DataRecord::calculate_final_y_rot()
@@ -244,19 +250,22 @@ void DataRecord::calculate_final_y_rot()
     final_y_rotaton_deg = final_y_rotaton_rad * 180 / M_PI;
 }
 
+
+
 void DataRecord::calculate_final_Ax()
 {
-    Ax = Ax + -0.0015*(temperature - temp_base);
+    Ax = Ax + (-0.0015*(temperature - temp_base));
 }
 
 void DataRecord::calculate_final_Ay()
 {
-    Ay = Ay + 0.0015*(temperature - temp_base);
+    Ay = Ay; +( 0.0015*(temperature - temp_base)) ;
 }
 
 void DataRecord::calculate_final_Az()
 {
-    Az = Az + 0.00015*(temperature - temp_base);
+    Az = Az + (0.00015*(temperature - temp_base));
+    qDebug() << "Got here " <<Az + 0.00015*(temperature - temp_base);
 }
 
 

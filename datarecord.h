@@ -4,6 +4,8 @@
 #include <QFile>
 #include <QDebug>
 #include <QDateTime>
+#include <array>
+
 
 
 class DataRecord
@@ -26,6 +28,7 @@ public:
     void setTempOffset(double offset);
 
     void setBaseTemp(double offset);
+
 
 private:
     QString raw_data;
@@ -51,6 +54,11 @@ private:
     double Ay;
     double Az;
     double rss;
+
+    double averageX[16];
+    double averageY[16];
+    double averageZ[16];
+    double averagei[16];
 
     // Rotation around x values
     double rot_on_x_x;
