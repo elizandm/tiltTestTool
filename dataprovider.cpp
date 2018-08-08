@@ -100,6 +100,20 @@ double DataProvider::deviceTempOffset(int devId)
     return offsets.getDeviceOffset(devId, OFFSET_TEMPERATURE);
 }
 
+double DataProvider::deviceXScale(int devId)
+{
+
+}
+
+double DataProvider::deviceYScale(int devId)
+{
+
+}
+double DataProvider::deviceZScale(int devId)
+{
+
+}
+
 bool PComp(DataRecord *a, DataRecord *b)
 {
    return (a->Timestamp()) < (b->Timestamp());

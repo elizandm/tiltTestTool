@@ -7,7 +7,6 @@
 #include <array>
 
 
-
 class DataRecord
 {
 public:
@@ -55,10 +54,15 @@ private:
     double Az;
     double rss;
 
+    //double averageX[16];
+    //double averageY[16];
+    //double averageZ[16];
+    //double averagei[16];
     double averageX[16];
     double averageY[16];
     double averageZ[16];
     double averagei[16];
+
 
     // Rotation around x values
     double rot_on_x_x;

@@ -14,6 +14,7 @@
 OffsetFile::OffsetFile(QString filename) :
     filename(filename)
 {
+    qDebug() << "file" << filename;
     open();
 }
 

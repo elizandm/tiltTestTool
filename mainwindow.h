@@ -34,6 +34,12 @@ private slots:
 
     void on_checkBox_3_toggled(bool checked);
 
+    void on_X_Scale_spin_valueChanged(double arg1);
+
+    void on_Y_Scale_Spin_valueChanged(double arg1);
+
+    void on_Z_Scale_Spin_valueChanged(double arg1);
+
 private:
     Ui::MainWindow *ui;
 

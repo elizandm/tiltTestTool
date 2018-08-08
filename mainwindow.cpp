@@ -109,22 +109,21 @@ void MainWindow::on_comboBox_device_currentIndexChanged(int)
     ui->doubleSpinBox_temp_offset->setValue(data_provider->deviceTempOffset(id));
 }
 
-void MainWindow::on_checkBox_toggled(bool checked)
+
+void MainWindow::on_X_Scale_spin_valueChanged(double arg1)
 {
-   // graph_controller->plotON = (1<<1)^(graph_controller->plotON);
-   if (checked){
-       graph_controller->plot_on[2+1] = 2;
-   }else{
-       graph_controller->plot_on[2+1] = 0;
-   }
+    int id = ui->comboBox_device->currentData().toInt();
+
 }
 
-void MainWindow::on_checkBox_2_toggled(bool checked)
+void MainWindow::on_Y_Scale_Spin_valueChanged(double arg1)
 {
-    //graph_controller->plotON = (1<<2)^graph_controller->plotON;
+    int id = ui->comboBox_device->currentData().toInt();
+
 }
 
-void MainWindow::on_checkBox_3_toggled(bool checked)
+void MainWindow::on_Z_Scale_Spin_valueChanged(double arg1)
 {
-   // graph_controller->plotON = (1<<3)^graph_controller->plotON;
+    int id = ui->comboBox_device->currentData().toInt();
+
 }

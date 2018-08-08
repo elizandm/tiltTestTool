@@ -2,6 +2,11 @@
 
 #define M_PI 3.14159265358979323846  /* pi */
 
+static double x_offsets[] = {0, 0, 0, 0,    0.0174,     0.0174,     0.0134 ,    0.025,   0.0074,     0.0263 ,    0.0098  ,  0.0093,     0.024,      0.0165,     0.0255, 0.0255};
+static double y_offsets[] = {0, 0, 0, 0,    -0.027,     -0.018,     -0.003 ,    -0.009,  -0.032,     -0.017,    -0.006  ,   -0.008,     -0.007,     -0.027,     -0.017, -0.017};
+static double z_offsets[] = {0, 0, 0, 0,    -0.001244,  -0.001,     -0.00058 ,  -0.001,  -0.001,     -0.001 ,    -0.00052,  -0.00063,   -0.0001,    -0.0001,    -0.001, -0.001};
+
+
 DataRecord::DataRecord(QString raw_data_str) :
     raw_data(raw_data_str),
     temp_offset(0),
@@ -57,6 +62,7 @@ double DataRecord::Temperature() const
 
 void DataRecord::setXoffset(double offset)
 {
+    //qDebug() << "devID" << devId<< "X " << offset ;
     x_offset_deg = offset;
     calculateData();
 }
@@ -178,7 +184,8 @@ void DataRecord::extract_temperature()
         return;
     }
 
-    temperature = 25.0 + raw_temp/10.0 + temp_offset;
+    temperature = 25.0 + raw_temp/10.0+ temp_offset;
+    //qDebug() << "temp offset "<< temp_offset;
 }
 
 void DataRecord::extract_rss()
@@ -196,6 +203,8 @@ void DataRecord::calculate_a_xyz_values()
     Ay = y / rss;
     Az = z / rss;
     //qDebug() << "device ID" << devId;
+    //qDebug() << "prior    devID" << devId<< "X " << averageX[devId] <<"Y " <<averageY[devId]<<"Z " <<averageZ[devId]<<"i "<<averagei[devId];
+
     averageX[devId] = averageX[devId]+Ax;
     averageY[devId] = averageY[devId]+Ay;
     averageZ[devId] = averageZ[devId]+Az;
@@ -254,18 +263,18 @@ void DataRecord::calculate_final_y_rot()
 
 void DataRecord::calculate_final_Ax()
 {
-    Ax = Ax + (-0.0015*(temperature - temp_base));
+    Ax = Ax+ x_offsets[devId];
 }
 
 void DataRecord::calculate_final_Ay()
 {
-    Ay = Ay; +( 0.0015*(temperature - temp_base)) ;
+    Ay = Ay + y_offsets[devId];
 }
 
 void DataRecord::calculate_final_Az()
 {
-    Az = Az + (0.00015*(temperature - temp_base));
-    qDebug() << "Got here " <<Az + 0.00015*(temperature - temp_base);
+    Az = Az+ z_offsets[devId];
+
 }
 
 
