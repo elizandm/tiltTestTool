@@ -36,6 +36,9 @@ bool DataProvider::loadFile(QString filename)
             record->setYoffset(offsets.getDeviceOffset(devId, OFFSET_Y));
             record->setZoffset(offsets.getDeviceOffset(devId, OFFSET_Z));
             record->setTempOffset(offsets.getDeviceOffset(devId, OFFSET_TEMPERATURE));
+            record->setTempOffset(offsets.getDeviceOffset(devId, SCALE_X));
+            record->setTempOffset(offsets.getDeviceOffset(devId, SCALE_Y));
+            record->setTempOffset(offsets.getDeviceOffset(devId, SCALE_Z));
             records[devId].append(record);
             sorted_records.append(record);
         }
@@ -74,6 +77,12 @@ void DataProvider::setDeviceOffset(int devId, OffsetType type, double offset)
             rec->setTempOffset(offset);
         if (type == BASE_TEMPERATURE)
             rec->setBaseTemp(offset);
+        if (type == SCALE_X)
+            rec->setXscale(offset);
+        if (type == SCALE_Y)
+            rec->setYscale(offset);
+        if (type == SCALE_Z)
+            rec->setZscale(offset);
     }
 
     offsets.setDeviceOffset(devId, type, offset);
@@ -102,16 +111,18 @@ double DataProvider::deviceTempOffset(int devId)
 
 double DataProvider::deviceXScale(int devId)
 {
+    return offsets.getDeviceOffset(devId, SCALE_X);
 
 }
 
 double DataProvider::deviceYScale(int devId)
 {
+    return offsets.getDeviceOffset(devId, SCALE_Y);
 
 }
 double DataProvider::deviceZScale(int devId)
 {
-
+    return offsets.getDeviceOffset(devId, SCALE_Z);
 }
 
 bool PComp(DataRecord *a, DataRecord *b)

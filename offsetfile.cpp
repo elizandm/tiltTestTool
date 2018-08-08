@@ -38,6 +38,16 @@ void OffsetFile::setDeviceOffset(int devId, OffsetType type, double offset)
     if (type == BASE_TEMPERATURE)
         offsets[devId].base_temperature = offset;
 
+
+    if (type == SCALE_X)
+        offsets[devId].x_scale = offset;
+
+    if (type == SCALE_Y)
+        offsets[devId].y_scale = offset;
+
+    if (type == SCALE_Z)
+        offsets[devId].z_scale = offset;
+
     save_file();
 }
 
@@ -60,6 +70,15 @@ double OffsetFile::getDeviceOffset(int devId, OffsetType type)
 
     if (type == BASE_TEMPERATURE)
         return offsets.value(devId).base_temperature;
+
+    if (type == SCALE_X)
+        return offsets.value(devId).x_scale;
+
+    if (type == SCALE_Y)
+        return offsets.value(devId).y_scale;
+
+    if (type == SCALE_Z)
+        return offsets.value(devId).z_scale;
 
     return 0;
 }
@@ -86,6 +105,9 @@ bool OffsetFile::open()
         os.x_offset = obj.value("xOffset").toDouble();
         os.y_offset = obj.value("yOffset").toDouble();
         os.z_offset = obj.value("zOffset").toDouble();
+        os.x_scale = obj.value("xScale").toDouble();
+        os.y_scale = obj.value("yScale").toDouble();
+        os.z_scale = obj.value("zScale").toDouble();
         os.temperature_offset = obj.value("tempOffset").toDouble();
         os.base_temperature = obj.value("basetemp").toDouble();
         offsets.insert(id, os);
@@ -116,6 +138,9 @@ bool OffsetFile::save_file()
         obj.insert("xOffset", i.value().x_offset);
         obj.insert("yOffset", i.value().y_offset);
         obj.insert("zOffset", i.value().z_offset);
+        obj.insert("xScale", i.value().x_scale);
+        obj.insert("yScale", i.value().y_scale);
+        obj.insert("zScale", i.value().z_scale);
         obj.insert("tempOffset", i.value().temperature_offset);
         array.append(obj);
     }

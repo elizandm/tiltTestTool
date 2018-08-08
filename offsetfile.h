@@ -6,7 +6,7 @@
 #include <QMap>
 #include <QDebug>
 
-enum OffsetType { OFFSET_X, OFFSET_Y, OFFSET_Z, OFFSET_TEMPERATURE , BASE_TEMPERATURE };
+enum OffsetType { OFFSET_X, OFFSET_Y, OFFSET_Z, OFFSET_TEMPERATURE , BASE_TEMPERATURE , SCALE_X, SCALE_Y, SCALE_Z };
 
 class OffsetFile
 {
@@ -25,7 +25,10 @@ private:
             y_offset(0),
             z_offset(0),
             temperature_offset(0),
-            base_temperature(0){
+            base_temperature(0),
+            x_scale(0),
+            y_scale(0),
+            z_scale(0){
         }
 
         double x_offset;
@@ -33,6 +36,10 @@ private:
         double z_offset;
         double temperature_offset;
         double base_temperature;
+
+        double x_scale;
+        double y_scale;
+        double z_scale;
     };
 
     QString filename;

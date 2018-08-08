@@ -12,7 +12,11 @@ DataRecord::DataRecord(QString raw_data_str) :
     temp_offset(0),
     x_offset_deg(0),
     y_offset_deg(0),
-    z_offset_deg(0)
+    z_offset_deg(0),
+
+      x_scale(0),
+      y_scale(0),
+      z_scale(0)
 {
     extract_timestamp();
     extract_id();
@@ -90,6 +94,25 @@ void DataRecord::setBaseTemp(double offset)
     temp_base = offset;
     calculateData();
 }
+
+void DataRecord::setXscale(double offset)
+{
+    x_scale = offset;
+    calculateData();
+}
+
+void DataRecord::setYscale(double offset)
+{
+    y_scale = offset;
+    calculateData();
+}
+
+void DataRecord::setZscale(double offset)
+{
+    z_scale = offset;
+    calculateData();
+}
+
 
 void DataRecord::extract_timestamp()
 {
@@ -263,17 +286,21 @@ void DataRecord::calculate_final_y_rot()
 
 void DataRecord::calculate_final_Ax()
 {
-    Ax = Ax+ x_offsets[devId];
+    Ax = (Ax+ x_offsets[devId])*(1+x_scale);
+
 }
 
 void DataRecord::calculate_final_Ay()
 {
-    Ay = Ay + y_offsets[devId];
+    Ay = (Ay + y_offsets[devId])*(1+y_scale);
+    qDebug() << "dz" << y_scale;
 }
 
 void DataRecord::calculate_final_Az()
 {
-    Az = Az+ z_offsets[devId];
+    Az = (Az+ z_offsets[devId])*(1+z_scale);
+    qDebug() << "dz" << z_scale;
+
 
 }
 

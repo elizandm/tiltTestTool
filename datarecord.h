@@ -28,6 +28,10 @@ public:
 
     void setBaseTemp(double offset);
 
+    void setXscale(double offset);
+    void setYscale(double offset);
+    void setZscale(double offset);
+
 
 private:
     QString raw_data;
@@ -44,6 +48,10 @@ private:
     double x_offset_rad;
     double y_offset_rad;
     double z_offset_rad;
+
+    double x_scale;
+    double y_scale;
+    double z_scale;
 
 
     double x;

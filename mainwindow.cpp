@@ -92,6 +92,7 @@ void MainWindow::on_doubleSpinBox_z_offset_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
     data_provider->setDeviceOffset(id, OFFSET_Z, arg1);
+    qDebug() << "nnnne "<<arg1;
 }
 
 void MainWindow::on_doubleSpinBox_temp_offset_valueChanged(double arg1)
@@ -107,23 +108,33 @@ void MainWindow::on_comboBox_device_currentIndexChanged(int)
     ui->doubleSpinBox_y_offset->setValue(data_provider->deviceYOffset(id));
     ui->doubleSpinBox_z_offset->setValue(data_provider->deviceZOffset(id));
     ui->doubleSpinBox_temp_offset->setValue(data_provider->deviceTempOffset(id));
+
+    ui->X_Scale_spin->setValue(data_provider->deviceXScale(id));
+    ui->Y_Scale_Spin->setValue(data_provider->deviceYScale(id));
+    ui->Z_Scale_Spin->setValue(data_provider->deviceZScale(id));
 }
 
 
 void MainWindow::on_X_Scale_spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
+    data_provider->setDeviceOffset(id, SCALE_X, arg1);
+    qDebug() << "xscale "<<arg1;
 
 }
 
 void MainWindow::on_Y_Scale_Spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
+    data_provider->setDeviceOffset(id, SCALE_Y, arg1);
+    qDebug() << "yscale "<<arg1;
 
 }
 
 void MainWindow::on_Z_Scale_Spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
+    data_provider->setDeviceOffset(id, SCALE_Z, arg1);
+    qDebug() << "zscale "<<arg1;
 
 }
