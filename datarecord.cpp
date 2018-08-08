@@ -208,7 +208,6 @@ void DataRecord::extract_temperature()
     }
 
     temperature = 25.0 + raw_temp/10.0+ temp_offset;
-    //qDebug() << "temp offset "<< temp_offset;
 }
 
 void DataRecord::extract_rss()
@@ -225,13 +224,7 @@ void DataRecord::calculate_a_xyz_values()
     Ax = x / rss;
     Ay = y / rss;
     Az = z / rss;
-    //qDebug() << "device ID" << devId;
-    //qDebug() << "prior    devID" << devId<< "X " << averageX[devId] <<"Y " <<averageY[devId]<<"Z " <<averageZ[devId]<<"i "<<averagei[devId];
 
-    averageX[devId] = averageX[devId]+Ax;
-    averageY[devId] = averageY[devId]+Ay;
-    averageZ[devId] = averageZ[devId]+Az;
-    averagei[devId] = averageX[devId]+1;
 }
 
 void DataRecord::calculate_rotations_on_x()
