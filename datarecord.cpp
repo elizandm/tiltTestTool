@@ -2,9 +2,9 @@
 
 #define M_PI 3.14159265358979323846  /* pi */
 
-static double x_offsets[] = {0, 0, 0, 0,    0.0174,     0.0174,     0.0134 ,    0.025,   0.0074,     0.0263 ,    0.0098  ,  0.0093,     0.024,      0.0165,     0.0255, 0.0255};
-static double y_offsets[] = {0, 0, 0, 0,    -0.027,     -0.018,     -0.003 ,    -0.009,  -0.032,     -0.017,    -0.006  ,   -0.008,     -0.007,     -0.027,     -0.017, -0.017};
-static double z_offsets[] = {0, 0, 0, 0,    -0.001244,  -0.001,     -0.00058 ,  -0.001,  -0.001,     -0.001 ,    -0.00052,  -0.00063,   -0.0001,    -0.0001,    -0.001, -0.001};
+static double x_offsets[] = {0, 0, 0,     0,        0.0174,  0.0174,     0.0134 ,    0.025,   0.0074,     0.0263 ,    0.0098  ,  0.0093,     0.024,      0.0165,     0.0255, 0.0255};
+static double y_offsets[] = {0, 0, 0,     0,        -0.0274,    -0.018,     -0.003 ,    -0.009,  -0.032,     -0.017,    -0.006  ,   -0.008,     -0.007,     -0.027,     -0.017, -0.017};
+static double z_offsets[] = {0, 0, 0,     0.00004,  -0.0013,  -0.001,     -0.00058 ,  -0.001,  -0.001,     -0.001 ,    -0.00052,  -0.00063,   -0.0001,    -0.0001,    -0.001, -0.001};
 
 
 DataRecord::DataRecord(QString raw_data_str) :
@@ -221,9 +221,13 @@ void DataRecord::extract_rss()
 
 void DataRecord::calculate_a_xyz_values()
 {
-    Ax = x / rss;
-    Ay = y / rss;
-    Az = z / rss;
+    Ax = (x / rss);
+    Ay = (y / rss);
+    Az = (z / rss);
+
+    Ax = (Ax)*(1+x_scale)+ x_offsets[devId];//+ x_offsets[devId];
+    Ay = (Ay )*(1+y_scale)+ y_offsets[devId];//+ y_offsets[devId];
+    Az = (Az)*(1+z_scale)+ z_offsets[devId];//+ z_offsets[devId];
 
 }
 
@@ -279,31 +283,27 @@ void DataRecord::calculate_final_y_rot()
 
 void DataRecord::calculate_final_Ax()
 {
-    Ax = (Ax+ x_offsets[devId])*(1+x_scale);
+    Ax = Ax;
 
 }
 
 void DataRecord::calculate_final_Ay()
 {
-    Ay = (Ay + y_offsets[devId])*(1+y_scale);
-    qDebug() << "dz" << y_scale;
+    Ay = Ay;
 }
 
 void DataRecord::calculate_final_Az()
 {
-    Az = (Az+ z_offsets[devId])*(1+z_scale);
-    qDebug() << "dz" << z_scale;
-
-
+    Az = Az;
 }
 
 
 
 void DataRecord::calculateData()
 {
-    x_offset_rad = x_offset_deg * M_PI / 180.0;
-    y_offset_rad = y_offset_deg * M_PI / 180.0;
-    z_offset_rad = z_offset_deg * M_PI / 180.0;
+    x_offset_rad = 0;//x_offset_deg * M_PI / 180.0;
+    y_offset_rad = 0;//y_offset_deg * M_PI / 180.0;
+    z_offset_rad = 0;//z_offset_deg * M_PI / 180.0;
 
     extract_x();
     extract_y();

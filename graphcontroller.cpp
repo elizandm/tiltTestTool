@@ -170,7 +170,7 @@ void GraphController::update_graph(QChart *graph, GraphController::GraphType gra
                 record->DeviceID() == 13 ||record->DeviceID() == 12 ||
                 record->DeviceID() == 14 || record->DeviceID() == 15)*/
         if (record->DeviceID() == 3 ||record->DeviceID() == 5 ||
-                record->DeviceID() == 6 ||
+                record->DeviceID() == 6 ||record->DeviceID() == 4 ||
                 record->DeviceID() == 10 || record->DeviceID() == 15) {
             if (!graphData.contains(record->DeviceID())&& plot_on[record->DeviceID()-1]==record->DeviceID()) {//check if series exists in array
                     graphData.insert(record->DeviceID(), new QLineSeries());

@@ -34,6 +34,34 @@ private slots:
 
     void on_Z_Scale_Spin_valueChanged(double arg1);
 
+    void on_checkBox_2_toggled(bool checked);
+
+    void on_checkBox_3_toggled(bool checked);
+
+    void on_checkBox_4_toggled(bool checked);
+
+    void on_checkBox_6_toggled(bool checked);
+
+    void on_checkBox_5_toggled(bool checked);
+
+    void on_checkBox_7_toggled(bool checked);
+
+    void on_checkBox_8_toggled(bool checked);
+
+    void on_checkBox_9_toggled(bool checked);
+
+    void on_checkBox_A_toggled(bool checked);
+
+    void on_checkBox_B_toggled(bool checked);
+
+    void on_checkBox_C_toggled(bool checked);
+
+    void on_checkBox_D_toggled(bool checked);
+
+    void on_checkBox_E_toggled(bool checked);
+
+    void on_checkBox_F_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
 
