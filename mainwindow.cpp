@@ -257,8 +257,8 @@ void MainWindow::on_checkBox_E_toggled(bool checked)
 void MainWindow::on_checkBox_F_toggled(bool checked)
 {
     if (checked){
-        graph_controller->plotTurnOn(16, 16);
+        graph_controller->plotTurnOn(15, 15);
     } else {
-        graph_controller->plotTurnOn(16, 0);
+        graph_controller->plotTurnOn(15, 0);
     }
 }

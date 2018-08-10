@@ -90,7 +90,7 @@ void GraphController::showTemperatureShiftGraph()
 void GraphController::ShowXGraph()
 {
     update_graph(x_graph, GRAPH_X, "G");
-    x_graph->setTitle("NWSM X Axis Drift Graph");
+    x_graph->setTitle("NWSM X Axis Acceleration Graph");
     QChartView *chartView = new QChartView(x_graph);
     chartView->setRenderHint(QPainter::Antialiasing);
     x_window->setCentralWidget(chartView);
@@ -100,7 +100,7 @@ void GraphController::ShowXGraph()
 void GraphController::ShowYGraph()
 {
     update_graph(y_graph, GRAPH_Y, "G");
-    y_graph->setTitle("NWSM Y Axis Drift Graph");
+    y_graph->setTitle("NWSM Y Axis Acceleration Graph");
     QChartView *chartView = new QChartView(y_graph);
     chartView->setRenderHint(QPainter::Antialiasing);
     y_window->setCentralWidget(chartView);
@@ -110,7 +110,7 @@ void GraphController::ShowYGraph()
 void GraphController::ShowZGraph()
 {
     update_graph(z_graph, GRAPH_Z, "G");
-    z_graph->setTitle("NWSM Z Axis Drift Graph");
+    z_graph->setTitle("NWSM Z Axis Acceleration Graph");
     QChartView *chartView = new QChartView(z_graph);
     chartView->setRenderHint(QPainter::Antialiasing);
     z_window->setCentralWidget(chartView);
@@ -169,12 +169,12 @@ void GraphController::update_graph(QChart *graph, GraphController::GraphType gra
                 record->DeviceID() == 10 ||record->DeviceID() == 11 ||
                 record->DeviceID() == 13 ||record->DeviceID() == 12 ||
                 record->DeviceID() == 14 || record->DeviceID() == 15)*/
-        if (record->DeviceID() == plot_on[2] ||record->DeviceID() == plot_on[4] ||
+        if (record->DeviceID() == plot_on[2] ||record->DeviceID() == plot_on[3]  ||record->DeviceID() == plot_on[4] ||
                 record->DeviceID() == plot_on[5] ||record->DeviceID() == plot_on[6] ||
                 record->DeviceID() == plot_on[7] ||record->DeviceID() == plot_on[8] ||
                 record->DeviceID() == plot_on[9] ||record->DeviceID() == plot_on[10] ||
                 record->DeviceID() == plot_on[11] || record->DeviceID() == plot_on[12]||
-                record->DeviceID() == plot_on[13] ||record->DeviceID() == plot_on[14]) {
+                record->DeviceID() == plot_on[13] ||record->DeviceID() == plot_on[14] ||record->DeviceID() == plot_on[15] ) {
             if (!graphData.contains(record->DeviceID())) {//check if series exists in array
                     graphData.insert(record->DeviceID(), new QLineSeries());
                     graphData[record->DeviceID()]->setName(QString("Dev %1").arg(record->DeviceID()));
