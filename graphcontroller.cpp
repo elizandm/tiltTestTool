@@ -169,10 +169,13 @@ void GraphController::update_graph(QChart *graph, GraphController::GraphType gra
                 record->DeviceID() == 10 ||record->DeviceID() == 11 ||
                 record->DeviceID() == 13 ||record->DeviceID() == 12 ||
                 record->DeviceID() == 14 || record->DeviceID() == 15)*/
-        if (record->DeviceID() == 3 ||record->DeviceID() == 5 ||
-                record->DeviceID() == 6 ||record->DeviceID() == 4 ||
-                record->DeviceID() == 10 || record->DeviceID() == 15) {
-            if (!graphData.contains(record->DeviceID())&& plot_on[record->DeviceID()-1]==record->DeviceID()) {//check if series exists in array
+        if (record->DeviceID() == plot_on[2] ||record->DeviceID() == plot_on[4] ||
+                record->DeviceID() == plot_on[5] ||record->DeviceID() == plot_on[6] ||
+                record->DeviceID() == plot_on[7] ||record->DeviceID() == plot_on[8] ||
+                record->DeviceID() == plot_on[9] ||record->DeviceID() == plot_on[10] ||
+                record->DeviceID() == plot_on[11] || record->DeviceID() == plot_on[12]||
+                record->DeviceID() == plot_on[13] ||record->DeviceID() == plot_on[14]) {
+            if (!graphData.contains(record->DeviceID())) {//check if series exists in array
                     graphData.insert(record->DeviceID(), new QLineSeries());
                     graphData[record->DeviceID()]->setName(QString("Dev %1").arg(record->DeviceID()));
 
@@ -215,6 +218,11 @@ void GraphController::update_graph(QChart *graph, GraphController::GraphType gra
     graph->createDefaultAxes();
     graph->axisY()->setTitleText(x_axis_name);
     graph->axisX()->setTitleText(QString("Hours since %1").arg(oldestRec.toString()));
+}
+
+void GraphController::plotTurnOn(int device, int on){
+    plot_on[device] = on;
+    updateGraphs();
 }
 
 void GraphController::setup_graph(QString title, QMainWindow *window)

@@ -119,96 +119,146 @@ void MainWindow::on_X_Scale_spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
     data_provider->setDeviceOffset(id, SCALE_X, arg1);
-    qDebug() << "xscale "<<arg1;
-
 }
 
 void MainWindow::on_Y_Scale_Spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
     data_provider->setDeviceOffset(id, SCALE_Y, arg1);
-    qDebug() << "yscale "<<arg1;
-
 }
 
 void MainWindow::on_Z_Scale_Spin_valueChanged(double arg1)
 {
     int id = ui->comboBox_device->currentData().toInt();
     data_provider->setDeviceOffset(id, SCALE_Z, arg1);
-    qDebug() << "zscale "<<arg1;
-
 }
 
 void MainWindow::on_checkBox_2_toggled(bool checked)
 {
-    qDebug() << "box 2 "<<checked;
+    if (checked){
+        graph_controller->plotTurnOn(2, 2);
+    } else {
+        graph_controller->plotTurnOn(2, 0);
+    }
 
 }
 
 void MainWindow::on_checkBox_3_toggled(bool checked)
 {
-    qDebug() << "box 3 "<<checked;
+    if (checked){
+        graph_controller->plotTurnOn(3, 3);
+    } else {
+        graph_controller->plotTurnOn(3, 0);
+    }
 
 }
 
 void MainWindow::on_checkBox_4_toggled(bool checked)
 {
-    qDebug() << "box 4 "<<checked;
+    if (checked){
+        graph_controller->plotTurnOn(4, 4);
+    } else {
+        graph_controller->plotTurnOn(4, 0);
+    }
 }
 
 void MainWindow::on_checkBox_5_toggled(bool checked)
 {
-    qDebug() << "box 5 "<<checked;
+    if (checked){
+        graph_controller->plotTurnOn(5, 5);
+    } else {
+        graph_controller->plotTurnOn(5, 0);
+    }
 }
 
 void MainWindow::on_checkBox_6_toggled(bool checked)
 {
-    qDebug() << "box 6 "<<checked;
+    if (checked){
+        graph_controller->plotTurnOn(6, 6);
+    } else {
+        graph_controller->plotTurnOn(6, 0);
+    }
 }
 
 
 
 void MainWindow::on_checkBox_7_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(7, 7);
+    } else {
+        graph_controller->plotTurnOn(7, 0);
+    }
 }
 
 void MainWindow::on_checkBox_8_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(8, 8);
+    } else {
+        graph_controller->plotTurnOn(8, 0);
+    }
 }
 
 void MainWindow::on_checkBox_9_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(9, 9);
+    } else {
+        graph_controller->plotTurnOn(9, 0);
+    }
 }
 
 void MainWindow::on_checkBox_A_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(10, 10);
+    } else {
+        graph_controller->plotTurnOn(10, 0);
+    }
 }
 
 void MainWindow::on_checkBox_B_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(11,11);
+    } else {
+        graph_controller->plotTurnOn(11, 0);
+    }
 }
 
 void MainWindow::on_checkBox_C_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(12, 12);
+    } else {
+        graph_controller->plotTurnOn(12, 0);
+    }
 }
 
 void MainWindow::on_checkBox_D_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(13, 13);
+    } else {
+        graph_controller->plotTurnOn(13, 0);
+    }
 }
 
 void MainWindow::on_checkBox_E_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(14, 14);
+    } else {
+        graph_controller->plotTurnOn(14, 0);
+    }
 }
 
 void MainWindow::on_checkBox_F_toggled(bool checked)
 {
-
+    if (checked){
+        graph_controller->plotTurnOn(16, 16);
+    } else {
+        graph_controller->plotTurnOn(16, 0);
+    }
 }
